@@ -6,6 +6,11 @@
 
   &__btn {
     grid-column: 2/3;
+
+    &:disabled {
+      background: #edecea;
+      color: #c3c2be;
+    }
   }
 
   &__input {
@@ -18,6 +23,7 @@
     font-family: 'Lato', 'Arial';
     font-weight: 400;
     font-size: 18px;
+    outline-color: var(--bg-btn-blue);
 
     &::placeholder {
       font-family: inherit;
@@ -25,6 +31,29 @@
       font-size: inherit;
       color: #272733;
     }
+  }
+
+  .eror-text {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 12px;
+    color: #ff5733;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    margin-top: 8px;
+    position: absolute;
+  }
+
+  .input-erorr .form__input {
+    background: #ffe6e0;
+    border: 1px solid #ff5733 !important;
+  }
+
+  .input-erorr .eror-text {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.2s ease;
   }
 
   .group-duble {
@@ -82,7 +111,7 @@
     }
 
     &:hover {
-      background-color: var( --bg-btn-blue);
+      background-color: var(--bg-btn-blue);
       color: var(--text-color-white);
 
       .form__icon {

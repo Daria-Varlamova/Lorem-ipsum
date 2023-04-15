@@ -185,6 +185,11 @@ h3 {
   grid-column: 2/3;
 }
 
+.form__btn:disabled {
+  background: #edecea;
+  color: #c3c2be;
+}
+
 .form__input {
   width: 100%;
   padding: 11px 10px 11px 10px;
@@ -195,6 +200,7 @@ h3 {
   font-family: 'Lato', 'Arial';
   font-weight: 400;
   font-size: 18px;
+  outline-color: var(--bg-btn-blue);
 }
 
 .form__input::-webkit-input-placeholder {
@@ -223,6 +229,31 @@ h3 {
   font-weight: inherit;
   font-size: inherit;
   color: #272733;
+}
+
+.form .eror-text {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 12px;
+  color: #ff5733;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  margin-top: 8px;
+  position: absolute;
+}
+
+.form .input-erorr .form__input {
+  background: #ffe6e0;
+  border: 1px solid #ff5733 !important;
+}
+
+.form .input-erorr .eror-text {
+  display: block;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .form .group-duble {

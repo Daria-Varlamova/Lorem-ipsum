@@ -88,3 +88,43 @@ const select = document.querySelector(".select");
 if (select) {
     NiceSelect.bind(select);
 }
+
+// validation email 
+
+const EMAIL_REGEXP =
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+
+function isEmailValid(value) {
+  return EMAIL_REGEXP.test(value);
+}
+
+
+const form = document.querySelector('.form-js');
+const btnSubmit = form.querySelector('.btn-js');
+
+function emailValidateInit() {
+  const emailInput = document.querySelector('.input-js');
+
+  emailInput.addEventListener('focus', () => {
+    if (emailInput.parentElement.classList.contains('input-erorr')) {
+      emailInput.parentElement.classList.remove('input-erorr');
+    }
+  });
+
+  emailInput.addEventListener('blur', (event) => {
+    const value = event.target.value;
+
+    if (!value || isEmailValid(value)) {
+      emailInput.parentElement.classList.remove('input-erorr');
+      btnSubmit.disabled = false;
+    } else {
+      emailInput.parentElement.classList.add('input-erorr');
+      btnSubmit.disabled = true;
+    }
+  });
+}
+
+emailValidateInit();
+
+
