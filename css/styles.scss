@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/LatoRegular.eot'),
+        url('../fonts/LatoRegular.woff') format('woff'),
+        url('../fonts/LatoRegular.ttf') format('truetype');
+
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/LatoSemibold.eot'),
+        url('../fonts/LatoSemibold.woff') format('woff'),
+        url('../fonts/LatoSemibold.ttf') format('truetype');
+
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/LatoHeavy.eot'),
+        url('../fonts/LatoHeavy.woff') format('woff'),
+        url('../fonts/LatoHeavy.ttf') format('truetype');
+
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/RalewaySemiBold.eot'),
+        url('../fonts/RalewaySemiBold.woff') format('woff'),
+        url('../fonts/RalewaySemiBold.ttf') format('truetype');
+
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+// calc font-size in VW units
+@function getVW($size) {
+    @return $size / 1920 * 100vw; // 1920 is design layout width
+}
+
+@mixin flex-align-center {
+    display: flex;
+    align-items: center
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Lato', 'Arial';
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    font-family: 'Lato', 'Arial';
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+
+    --text-color-white: #FFFFFF;
+    --text-color-black: #000000;
+
+    --bg-dark: #3D4050;
+    --color-hover: #43ABF0;
+    --text-blue: #3E9CDC;
+
+    --bg-btn-white: #FFFFFF;
+    --bg-btn-blue: #3E9CDC;
+
+    color: var(--text-color-white);
+}
+
+.body.active-menu { 
+    overflow: hidden;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    position: relative;
+    display: grid;
+}
+
+.title {
+    font-family: 'Lato', 'Arial';
+
+    margin: 0;
+
+    font-size: getVW(48);
+    text-transform: uppercase;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: getVW(58);
+}
+
+.title-h2 {
+    margin: 0;
+    font-weight: 700;
+
+    font-size: getVW(36);
+    text-transform: uppercase;
+}
+
+.text-blue {
+    color: var(--text-blue);
+    font-family: 'Raleway', 'Arial';
+    font-weight: 600;
+    font-size: inherit;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.list-hyphen {
+    margin: 10px 0;
+    padding-left: 10px;
+
+    &__item {
+        list-style: none;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: var(--text-color-black);
+        margin-bottom: 5px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &::before {
+            content: "-";
+            text-indent: -5px;
+        }
+    }
+}
+
+.info-item {
+    @include flex-align-center;
+    gap: 10px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--text-color-white);
+    color: #C3C3C3;
+
+    .icon {
+        fill: #3E9CDC;
+        width: 20px;
+        height: 20px;
+    }
+
+    .vk {
+        width: 10px;
+        height: 13px;
+    }
+}
+
+@media screen and (max-width: 1024px) { 
+    .title-h2 {
+        font-size: 20px;
+        line-height: normal;
+    }
+
+    .title { 
+        font-size: 25px;
+        line-height: normal;
+    }
+}
+
+
+@import "../includes/form";
+@import "../includes/header";
+@import "../includes/burger";
+@import "../includes/entry";
+@import "../includes/btn";
+@import "../includes/footer";
+@import "../includes/ordering";
+@import "../includes/select";
+@import "../includes/steps";

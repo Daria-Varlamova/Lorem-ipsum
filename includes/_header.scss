@@ -1,0 +1,117 @@
+.header {
+  width: 100%;
+  padding: 15px 0;
+  background: rgba(16, 16, 29, 0.9);
+  min-height: getVW(100);
+  @include flex-align-center;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &-inner {
+    @include flex-align-center;
+    justify-content: space-between;
+  }
+}
+
+.menu-nav {
+  &__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    column-gap: 60px;
+    row-gap: 20px;
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__link {
+    display: flex;
+    font-family: 'Arial', 'Lato';
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-color-white);
+    transition: color .1s linear;
+    position: relative;
+
+    &::after {
+      --scale: 0;
+
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 1px;
+      background: var(--color-hover);
+      transform: scaleX(var(--scale));
+      transform-origin: var(--x) 50%;
+      transition: transform .3s cubic-bezier(.51, .92, .24, 1);
+    }
+
+    &:hover {
+      &::after {
+        --scale: 1;
+      }
+
+      color: var(--color-hover);
+    }
+  }
+}
+
+
+@media screen and (max-width: 835px) {
+  .menu-nav {
+    display: none;
+  }
+
+  .logo {
+    max-width: 170px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .active-menu {
+    .menu-nav {
+      display: block;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__item {
+        width: fit-content;
+      }
+
+      &__link {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 29px;
+      }
+
+      &__list {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+  }
+}

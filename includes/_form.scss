@@ -1,0 +1,121 @@
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  &__btn {
+    grid-column: 2/3;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 11px 10px 11px 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--text-color-white);
+    border-radius: 3px;
+    font-family: 'Lato', 'Arial';
+    font-weight: 400;
+    font-size: 18px;
+
+    &::placeholder {
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      color: #272733;
+    }
+  }
+
+  .group-duble {
+    grid-column: 1/3;
+  }
+
+  &__input-document {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  &__name-file {
+    text-align: left;
+  }
+
+  &__icon {
+    fill: #272733;
+    width: 18px;
+    height: 20px;
+    transition: all .2s linear;
+  }
+
+  &__icon-reset {
+    width: 13px;
+    height: 13px;
+    stroke: #311a1a;
+    transition: all .2s linear;
+  }
+
+  &__file-button,
+  &__btn-reset {
+    width: 100%;
+    padding: 12px;
+    min-height: 48px;
+    background: var(--text-color-white);
+    border: 2px solid var(--bg-btn-blue);
+    border-radius: 3px;
+    @include flex-center;
+    gap: 10px;
+    color: #272733;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .2s linear;
+
+    &.disabled {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var( --bg-btn-blue);
+      color: var(--text-color-white);
+
+      .form__icon {
+        fill: var(--text-color-white);
+      }
+
+      .form__icon-reset {
+        stroke: var(--text-color-white);
+      }
+    }
+  }
+
+  .disabled {
+    .form__file-button {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+
+    &__btn,
+    .group-duble {
+      grid-column: 1/-1;
+    }
+
+  }
+}

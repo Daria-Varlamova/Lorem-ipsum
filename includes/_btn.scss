@@ -1,0 +1,45 @@
+.box-btn {
+  @include flex-align-center;
+  column-gap: 30px;
+}
+
+.btn {
+  padding: 12px 15px;
+  min-width: 183px;
+  min-height: 43px;
+  color: var(--text-color-black);
+  border: 1px solid #6F6D7B;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: uppercase;
+  background: var(--bg-btn-white);
+  text-decoration: none;
+  transition: transform .2s linear;
+
+  @include flex-center;
+
+  &_blue {
+    background: var(--bg-btn-blue);
+    color: var(--text-color-white);
+    border: 1px solid #FFFFFF;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .box-btn {
+    width: 100%;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    min-height: 50px;
+  }
+}
