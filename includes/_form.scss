@@ -69,12 +69,15 @@
   &__container {
     width: 100%;
     display: flex;
+    position: relative;
     flex-direction: column-reverse;
     gap: 20px;
   }
 
   &__name-file {
     text-align: left;
+    position: absolute;
+    bottom: -35px;
   }
 
   &__icon {
@@ -146,5 +149,8 @@
       grid-column: 1/-1;
     }
 
+    &__name-file {
+      position: static;
+    }
   }
 }

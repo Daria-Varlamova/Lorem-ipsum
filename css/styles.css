@@ -273,6 +273,7 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
@@ -282,6 +283,8 @@ h3 {
 
 .form__name-file {
   text-align: left;
+  position: absolute;
+  bottom: -35px;
 }
 
 .form__icon {
@@ -360,6 +363,9 @@ h3 {
   .form__btn,
   .form .group-duble {
     grid-column: 1/-1;
+  }
+  .form__name-file {
+    position: static;
   }
 }
 
@@ -896,7 +902,7 @@ h3 {
 
 @media screen and (max-width: 1024px) {
   .ordering {
-    padding: 50px 0;
+    padding: 50px 0 60px 0;
   }
   .ordering-inner__title {
     margin-bottom: 15px;
